@@ -1,0 +1,13 @@
+---
+inventory:
+  plugin: SimpleInventory
+  options:
+    host_file: "./hosts.yaml"
+    group_file: "./groups.yaml"
+    defaults_file: "./defaults.yaml" 
+
+# Defines total number of concurrent connections
+runner:
+  plugin: threaded    # "plugin: serial" can be used if sequenced connections are required.
+  options:
+    num_workers: 10

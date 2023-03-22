@@ -1,0 +1,332 @@
+2023-03-21 01:32:04,565 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 02:13:39,490 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 02:13:39,912 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/connection.py", line 105, in open
+    connection.open()
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    self.channel.channel_authenticate_ssh(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 216, in decorate
+    return _multiprocessing_timeout(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 113, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/base_channel.py", line 432, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2023-03-21 02:13:39,913 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'send_random' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script1.py", line 8, in send_random
+    task.run(task=send_command,command="show ip inter brief")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-21 02:13:39,925 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/connection.py", line 105, in open
+    connection.open()
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    self.channel.channel_authenticate_ssh(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 216, in decorate
+    return _multiprocessing_timeout(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 113, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/base_channel.py", line 432, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2023-03-21 02:13:39,926 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'send_random' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script1.py", line 8, in send_random
+    task.run(task=send_command,command="show ip inter brief")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-21 02:15:11,036 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 02:15:29,788 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 02:20:20,946 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 02:20:21,384 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/connection.py", line 105, in open
+    connection.open()
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    self.channel.channel_authenticate_ssh(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 216, in decorate
+    return _multiprocessing_timeout(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 113, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/base_channel.py", line 432, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2023-03-21 02:20:21,385 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'send_random' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script1.py", line 8, in send_random
+    task.run(task=send_command,command="show ip inter brief")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-21 02:20:21,386 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_scrapli/connection.py", line 105, in open
+    connection.open()
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    self.channel.channel_authenticate_ssh(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 216, in decorate
+    return _multiprocessing_timeout(
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/decorators.py", line 113, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/root/jenkins/lib/python3.8/site-packages/scrapli/channel/base_channel.py", line 432, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2023-03-21 02:20:21,386 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'send_random' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script1.py", line 8, in send_random
+    task.run(task=send_command,command="show ip inter brief")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-21 23:43:03,935 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 23:54:13,204 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-21 23:54:14,299 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script2.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "invalid_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-21 23:54:14,507 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script2.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "invalid_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-21 23:57:06,046 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-21 23:57:07,114 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-21 23:57:07,295 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-21 23:57:30,019 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-22 00:00:19,149 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-22 00:00:19,989 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:00:20,063 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:10:41,046 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-22 00:10:42,129 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:10:42,326 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:11:08,326 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-22 00:11:09,454 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:11:09,639 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:12:12,593 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-22 00:12:13,716 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:12:13,847 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:12:40,001 -  nornir.core -     INFO -        run() - Running task 'random_configs' with args {} on 2 hosts
+2023-03-22 00:12:40,812 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
+2023-03-22 00:12:40,991 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'random_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "002_push_bad_config.py", line 8, in random_configs
+    task.run(task = send_configs_from_file, file = "002_bad_config.txt")
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
+
+
