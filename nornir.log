@@ -484,3 +484,6 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
 
 2023-03-22 03:21:28,815 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
 2023-03-22 03:21:45,749 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
+2023-03-22 03:27:59,776 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 03:27:59,776 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 03:28:44,579 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
