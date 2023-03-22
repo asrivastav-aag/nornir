@@ -1,2 +1,4 @@
 router ospf {{ host.facts.OSPF.RID }}
 network {{ host.facts.OSPF.NETWORK }}
+passive-interface default
+no passive-interface {{ host.facts.OSPF.INTF }}
