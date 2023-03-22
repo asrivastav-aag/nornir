@@ -434,3 +434,53 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
 2023-03-22 01:27:29,815 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
 2023-03-22 01:47:47,505 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
 2023-03-22 02:06:40,949 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 02:10:28,185 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 03:07:02,254 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 03:19:08,231 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
+2023-03-22 03:19:09,145 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "004_config_and_collect_ospf.py", line 7, in pull_info
+    result = task.run(task=send_command, command = 'show ip ospf neighbors')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-22 03:19:09,171 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "004_config_and_collect_ospf.py", line 7, in pull_info
+    result = task.run(task=send_command, command = 'show ip ospf neighbors')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-22 03:19:45,493 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
+2023-03-22 03:19:46,434 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "004_config_and_collect_ospf.py", line 7, in pull_info
+    result = task.run(task=send_command, command = 'show ip ospf neighbors')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-22 03:19:46,438 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'pull_info' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "004_config_and_collect_ospf.py", line 7, in pull_info
+    result = task.run(task=send_command, command = 'show ip ospf neighbors')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-03-22 03:21:28,815 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
+2023-03-22 03:21:45,749 -  nornir.core -     INFO -        run() - Running task 'pull_info' with args {} on 2 hosts
