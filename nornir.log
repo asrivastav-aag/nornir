@@ -1,4 +1,4 @@
-2023-03-21 01:32:04,565 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
+2023-03-21 01:32:04,565 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 host
 2023-03-21 02:13:39,490 -  nornir.core -     INFO -        run() - Running task 'send_random' with args {} on 2 hosts
 2023-03-21 02:13:39,912 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'send_command' failed with traceback:
 Traceback (most recent call last):
