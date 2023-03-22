@@ -429,3 +429,4 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
 
 
 2023-03-22 00:54:39,207 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 00:57:22,795 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
