@@ -330,3 +330,102 @@ Traceback (most recent call last):
 nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs_from_file (failed)
 
 
+2023-03-22 00:50:41,612 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 00:50:41,613 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './group_vars/all.yaml'
+
+2023-03-22 00:50:41,614 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'pull_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "003_push_config_jinja.py", line 12, in pull_vars
+    result = task.run(task=load_yaml, file='./group_vars/all.yaml')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2023-03-22 00:50:41,614 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './group_vars/all.yaml'
+
+2023-03-22 00:50:41,614 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'pull_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "003_push_config_jinja.py", line 12, in pull_vars
+    result = task.run(task=load_yaml, file='./group_vars/all.yaml')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2023-03-22 00:51:58,425 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts
+2023-03-22 00:51:58,429 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 003_ospf.j2
+
+2023-03-22 00:51:58,429 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'pull_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "003_push_config_jinja.py", line 14, in pull_vars
+    push_config(task)
+  File "003_push_config_jinja.py", line 17, in push_config
+    ospf_config = task.run(task=template_file, template='003_ospf.j2', path='templates')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2023-03-22 00:51:58,429 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/root/jenkins/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/root/jenkins/lib/python3.8/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 003_ospf.j2
+
+2023-03-22 00:51:58,430 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'pull_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "003_push_config_jinja.py", line 14, in pull_vars
+    push_config(task)
+  File "003_push_config_jinja.py", line 17, in push_config
+    ospf_config = task.run(task=template_file, template='003_ospf.j2', path='templates')
+  File "/root/jenkins/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2023-03-22 00:54:39,207 -  nornir.core -     INFO -        run() - Running task 'pull_vars' with args {} on 2 hosts

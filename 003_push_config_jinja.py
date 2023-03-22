@@ -6,15 +6,15 @@ from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_jinja2.plugins.tasks import template_file
 from nornir.core.exceptions import NornirExecutionError
 
-nr = InitNornir(config='config_file.yaml')
+nr = InitNornir(config_file='config.yaml')
 
 def pull_vars(task):
-    result = task.run(task=load_yaml, file='./group_vars/all.yaml')
+    result = task.run(task=load_yaml, file='./groups.yaml')
     task.host['facts'] = result.result
     push_config(task)
 
 def push_config(task):
-    ospf_config = task.run(task=template_file, template='003_ospf.j2', path='templates')
+    ospf_configs = task.run(task=template_file, template='003_ospf.j2', path='./')
     configurations = ospf_configs.result.splitlines()
     task.run(task=send_configs, configs=configurations)
 
